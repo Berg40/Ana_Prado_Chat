@@ -102,7 +102,7 @@ def main(page: ft.Page):
                 enviar_button,
 
                 ft.Container(
-                    height=330,
+                    height=350,
                     width=400,
                     content=ft.Column(
                         scroll=ft.ScrollMode.AUTO,
@@ -113,8 +113,10 @@ def main(page: ft.Page):
                     )
                 ),
                 ft.Container(
-                    height=150,
-                    width=100,
+
+                    margin=0,
+                    height=80,
+                    width=200,
                     image_src='images/logo.png',
                     image_fit=ft.ImageFit.COVER
 
