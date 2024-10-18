@@ -50,7 +50,15 @@ def gpt(pergunta, display_result, pergunta_input):
 
 
 def main(page: ft.Page):
+    page.window_always_on_top=True
+    page.theme_mode=ft.ThemeMode.LIGHT
+
+
     page.title = "Ana Prado Chat"
+
+    def toglle_theme(e):
+        page.theme_mode= ft.ThemeMode.DARK  if page.theme_mode == page.theme_mode.LIGHT else page.theme_mode.LIGHT
+        page.update()
 
     # Criar campo para pergunta
     pergunta_input = ft.TextField(label="Digite sua pergunta:", width=400)
@@ -66,6 +74,7 @@ def main(page: ft.Page):
 
     # Container para organizar os elementos
     container = ft.Container(
+
         expand=True,
         padding=20,
         bgcolor=ft.colors.PINK_100,
@@ -75,6 +84,10 @@ def main(page: ft.Page):
         content=ft.Column(
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
             controls=[
+                ft.IconButton(
+                    icon=ft.icons.BRIGHTNESS_6,
+                    on_click=toglle_theme
+                ),
                 ft.Text(
                     text_align=ft.TextAlign.CENTER,
                     weight=ft.FontWeight.BOLD,
@@ -84,7 +97,26 @@ def main(page: ft.Page):
                 ),
                 pergunta_input,
                 enviar_button,
-                resposta_text
+
+                ft.Container(
+                    height=300,
+                    width=400,
+                    content=ft.Column(
+                        scroll=ft.ScrollMode.AUTO,
+                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                        controls=[
+                            resposta_text
+                        ]
+                    )
+                ),
+                ft.Container(
+                    height=150,
+                    width=100,
+                    image_src='images/logo.png',
+                    image_fit=ft.ImageFit.COVER
+
+                )
+
             ]
         )
     )
