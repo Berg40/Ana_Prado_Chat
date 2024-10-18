@@ -92,8 +92,8 @@ def main(page: ft.Page):
     # Adicionar os elementos à página
     page.add(container)
 
-port = int(os.getenv("PORT", 8000))  # Usa a variável de ambiente PORT ou porta 8000 como padrão
+
 # Rodar a aplicação Flet
 if __name__ == "__main__":
-    ft.app(target=main, port=port)
+    ft.app(target=main)
 
