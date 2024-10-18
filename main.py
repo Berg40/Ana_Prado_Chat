@@ -102,7 +102,7 @@ def main(page: ft.Page):
                 enviar_button,
 
                 ft.Container(
-                    height=350,
+                    height=380,
                     width=400,
                     content=ft.Column(
                         scroll=ft.ScrollMode.AUTO,
