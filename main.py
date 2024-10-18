@@ -50,8 +50,10 @@ def gpt(pergunta, display_result, pergunta_input):
 
 
 def main(page: ft.Page):
-    page.window_always_on_top=True
-    page.theme_mode=ft.ThemeMode.LIGHT
+    page.window_always_on_top = True
+    page.theme_mode = ft.ThemeMode.LIGHT
+    page.bgcolor = ft.colors.PINK_100
+    page.padding = 0
 
 
     page.title = "Ana Prado Chat"
@@ -75,8 +77,9 @@ def main(page: ft.Page):
     # Container para organizar os elementos
     container = ft.Container(
 
-        expand=True,
-        padding=20,
+        height=900,
+        width=400,
+        padding=10,
         bgcolor=ft.colors.PINK_100,
         image_src='images/fotoprincipal.jpg',
         image_fit=ft.ImageFit.COVER,
@@ -99,7 +102,7 @@ def main(page: ft.Page):
                 enviar_button,
 
                 ft.Container(
-                    height=300,
+                    height=330,
                     width=400,
                     content=ft.Column(
                         scroll=ft.ScrollMode.AUTO,
