@@ -76,10 +76,9 @@ def main(page: ft.Page):
 
     # Container para organizar os elementos
     container = ft.Container(
-
         height=900,
         width=400,
-        padding=10,
+        padding=ft.Padding(top=10, bottom=0, left=10, right=10),
         bgcolor=ft.colors.PINK_100,
         image_src='images/fotoprincipal.jpg',
         image_fit=ft.ImageFit.COVER,
@@ -102,10 +101,9 @@ def main(page: ft.Page):
                 enviar_button,
 
                 ft.Container(
-                    height=380,
-                    width=400,
+                    expand=True,
                     content=ft.Column(
-                        scroll=ft.ScrollMode.AUTO,
+                        scroll=ft.ScrollMode.ADAPTIVE,
                         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                         controls=[
                             resposta_text
@@ -113,7 +111,6 @@ def main(page: ft.Page):
                     )
                 ),
                 ft.Container(
-
                     margin=0,
                     height=80,
                     width=200,
