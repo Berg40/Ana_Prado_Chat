@@ -18,12 +18,13 @@ def gpt(pergunta, display_result, pergunta_input):
 
     # Link da API
     link1 = "https://api.openai.com/v1/chat/completions"
-    id_modelo = "gpt-3.5-turbo"
+    id_modelo = "gpt-4"
 
     # Construir o corpo da mensagem
     body_mensagem = {
         "model": id_modelo,
-        "messages": [{"role": "user", "content": pergunta}]
+        "messages": [{"role": "system", "content":"Você é uma assistente chamada Ana Prado, especializada em musculação feminina e nutrição. Todas as respostas devem ser relacionadas a esse tema. Não discuta outros assuntos que não estejam diretamente ligados à musculação e nutrição."},
+    {"role": "user", "content": pergunta}]
     }
 
     # Converter para JSON
@@ -49,11 +50,14 @@ def gpt(pergunta, display_result, pergunta_input):
     display_result.update()
 
 
+
+
 def main(page: ft.Page):
     page.window_always_on_top = True
     page.theme_mode = ft.ThemeMode.LIGHT
     page.bgcolor = ft.colors.PINK_100
     page.padding = 0
+
 
 
     page.title = "Ana Prado Chat"
@@ -78,12 +82,13 @@ def main(page: ft.Page):
     container = ft.Container(
         height=900,
         width=400,
-        padding=ft.Padding(top=10, bottom=0, left=10, right=10),
+        padding=ft.Padding(top=10, bottom=0, left=20, right=20),
         bgcolor=ft.colors.PINK_100,
         image_src='images/fotoprincipal.jpg',
         image_fit=ft.ImageFit.COVER,
         image_opacity=0.3,
         content=ft.Column(
+
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
             controls=[
                 ft.IconButton(
@@ -101,9 +106,10 @@ def main(page: ft.Page):
                 enviar_button,
 
                 ft.Container(
-                    expand=True,
+                    height=400,
+                    width=600,
                     content=ft.Column(
-                        scroll=ft.ScrollMode.ADAPTIVE,
+                        scroll=ft.ScrollMode.ALWAYS,
                         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                         controls=[
                             resposta_text
